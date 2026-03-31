@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+/* CARD PRINCIPAL */
+.card-perfil {
+  position: relative;
+  width: 90%;
+  max-width: 350px;
+  margin: 80px auto;
+  padding: 80px 20px 30px;
+  background: linear-gradient(180deg, #1e1e2f, #2a2a4a);
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+/* FOTO SOBREPOSTA */
+.perfil-container {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-## Available Scripts
+.foto-perfil {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4b0082;
+}
 
-In the project directory, you can run:
+/* TEXTO */
+.nome {
+  margin-top: 10px;
+  font-size: 20px;
+}
 
-### `npm start`
+.descricao {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #ccc;
+}
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+/* BOTÕES */
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+.botoes button {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background: #fff;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-### `npm test`
+/* RESPONSIVO */
+@media (min-width: 600px) {
+  .botoes {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+import Imagens from "../../Imagens/fotoPerfil.jpeg";
+import "./estilo.css";
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function Perfil() {
+  return (
+    <div className="card-perfil">
+      
+      <div className="perfil-container">
+        <img src={Imagens} alt="Minha foto" className="foto-perfil" />
+      </div>
 
-### `npm run build`
+      <h2 className="nome">Seu Nome</h2>
+      <p className="descricao">Desenvolvedora Front-End em formação</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+      <div className="botoes">
+        <button>Email</button>
+        <button>LinkedIn</button>
+        <button>GitHub</button>
+      </div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    </div>
+  );
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default Perfil;
